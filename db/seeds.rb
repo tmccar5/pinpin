@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+test_user = User.create({email: 'tom@final.com', password: 'Password320'})
+test_user_two = User.create({email: 'tom@perhaps.com', password: 'Password320'})
+
+pin_test_user = test_user.pins.build({title: 'test pin!', description: 'this is the description for the test pin'}).save

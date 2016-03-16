@@ -1,0 +1,23 @@
+<% if !user_signed_in? %>
+	<div class="jumbotron">
+	  <h1>Welcome!</h1>
+	  <p>Please Sign Up and make some new Pins </p>
+	  <p><a class="btn btn-primary btn-lg" href="/users/sign_up" role="button">Sign Up</a></p>
+	</div>
+<% end %>
+
+<div class="transitions-enabled" id="pins">
+	<% @pins.each do |pin| %>
+		<div class="box panel panel-default">
+			<%= link_to (image_tag pin.image.url(:medium)), pin %>
+				<div class="panel-body">
+					<h2>
+					  <%= link_to pin.title, pin %>
+					</h2>
+					<p class="user"></p>
+					Submitted by
+					<%= pin.user.email %>
+				</div>
+		</div>
+	<% end %>		
+</div>
